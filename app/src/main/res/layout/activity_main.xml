@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.base.lib.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main">
+    <com.base.lib.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:orientation="vertical">
+        <TextView
+            style="@style/normal_text_style"
+            android:textColor="#C8C1DE"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="5G Peak Rate"/>
+        <com.tools.speedlib.views.AwesomeSpeedView
+            android:id="@+id/speedometer"
+            android:layout_width="731px"
+            android:layout_height="731px"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="127dp"
+            app:sv_endDegree="405"
+            android:background="@drawable/bg_meter"/>
+        <com.base.lib.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tx_delay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="--"
+                    android:textColor="@color/C02_ST"
+                    android:textSize="@dimen/F02" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tx_delay"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="网络延时"
+                    android:textColor="@color/C04_ST"
+                    android:textSize="@dimen/F05" />
+            </RelativeLayout>
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/C04_ST" />
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tx_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="--"
+                    android:textColor="@color/C02_ST"
+                    android:textSize="@dimen/F02" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tx_down"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="下载速度"
+                    android:textColor="@color/C04_ST"
+                    android:textSize="@dimen/F05" />
+            </RelativeLayout>
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/C04_ST" />
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tx_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="--"
+                    android:textColor="@color/C02_ST"
+                    android:textSize="@dimen/F02" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tx_up"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="上传速度"
+                    android:textColor="@color/C04_ST"
+                    android:textSize="@dimen/F05" />
+            </RelativeLayout>
+        </com.base.lib.autolayout.AutoLinearLayout>
+    </com.base.lib.autolayout.AutoLinearLayout>
+    <LinearLayout
+        android:id="@+id/start_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:background="@drawable/bg_start"
+        android:layout_marginBottom="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="START"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"/>
+    </LinearLayout>
+</com.base.lib.autolayout.AutoRelativeLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_tab_height">88px</dimen>
+    <dimen name="normal_margin_space">30px</dimen>
+    <dimen name="normal_left_margin">30px</dimen>
+    <dimen name="normal_top_margin">20px</dimen>
+    <dimen name="normal_line_height">1px</dimen>
+    <dimen name="app_title_height">88px</dimen>
+
+    <!--通用尺寸-->
+    <dimen name="dp_1">1dp</dimen>
+    <dimen name="dp_3">3dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_25">25dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+
+    <!--基本按钮尺寸-->
+    <dimen name="normal_btn_height">80px</dimen>
+    <dimen name="normal_edit_height">88px</dimen>
+    <dimen name="normal_item_height">120px</dimen>
+    <dimen name="normal_arrow_height">88px</dimen>
+
+    <!--基本文字尺寸-->
+    <dimen name="sp_8">8sp</dimen>
+    <dimen name="sp_10">10sp</dimen>
+    <dimen name="sp_12">12sp</dimen>
+    <dimen name="sp_13">13sp</dimen>
+    <dimen name="sp_14">14sp</dimen>
+    <dimen name="sp_15">15sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_18">18sp</dimen>
+    <dimen name="sp_20">20sp</dimen>
+    <dimen name="sp_22">22sp</dimen>
+    <dimen name="sp_24">24sp</dimen>
+    <dimen name="sp_32">32sp</dimen>
+    <dimen name="sp_41">41sp</dimen>
+
+    <dimen name="title_text_size">17sp</dimen>
+
+    <dimen name="text_size_50">25sp</dimen>
+
+    <dimen name="text_size_18">9sp</dimen>
+    <dimen name="text_size_22">11sp</dimen>
+    <dimen name="text_size_20">10sp</dimen>
+    <dimen name="text_size_24">12sp</dimen>
+    <dimen name="text_size_26">13sp</dimen>
+    <dimen name="text_size_28">14sp</dimen>
+    <dimen name="text_size_30">15sp</dimen>
+    <dimen name="text_size_32">16sp</dimen>
+    <dimen name="text_size_34">17sp</dimen>
+    <dimen name="text_size_36">18sp</dimen>
+    <dimen name="text_size_40">20sp</dimen>
+    <dimen name="text_size_44">22sp</dimen>
+    <dimen name="text_size_46">23sp</dimen>
+    <dimen name="text_size_48">24sp</dimen>
+    <dimen name="text_size_64">32sp</dimen>
+    <dimen name="text_size_72">36sp</dimen>
+    <dimen name="text_size_80">40sp</dimen>
+
+    <!--悬浮按钮-->
+    <dimen name="action_button_size">72dp</dimen>
+    <dimen name="action_button_content_margin">16dp</dimen>
+    <dimen name="action_button_margin">12dp</dimen>
+    <dimen name="action_menu_radius">96dp</dimen>
+
+    <dimen name="sub_action_button_size">36dp</dimen>
+    <dimen name="sub_action_button_content_margin">6dp</dimen>
+</resources>

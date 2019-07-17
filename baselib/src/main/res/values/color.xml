@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00000000</color>
+    <color name="colorPrimaryDark">#00000000</color>
+    <color name="colorAccent">#3f85ff</color>
+    <!--app基本色值-->
+    <color name="white">#ffffff</color>
+    <color name="title_color">#35495E</color>
+    <color name="title_text_color">#ffffff</color>
+    <color name="app_backgroud_color">#F8F8F8</color>
+    <color name="color_bottom_tab_normal">#b5b9bc</color>
+    <color name="color_bottom_tab_selected">#3F85FF</color>
+    <color name="comment_hint_text_color">#999ca1</color>
+    <color name="comment_text_color">#444444</color>
+    <color name="normal_blue_color">#3f85ff</color>
+    <color name="product_detail_status_color">#3780FF</color>
+    <color name="calendar_blue_color">#3F52FF</color>
+    <color name="gray_status_bg_color">#BFBFBF</color>
+    <color name="transparent">#00000000</color>
+    <!--半透明-->
+    <color name="half_transparent">#80ffffff</color>
+    <color name="white_transparent_7">#4cffffff</color>
+    <!--白色 透明度0.2-->
+    <color name="white_transparent_2">#33ffffff</color>
+    <color name="normal_black_text_color">#3d4145</color>
+    <color name="deep_back_text_color">#333333</color>
+    <color name="normal_text_color">#565d66</color>
+    <color name="normal_gray_text_color">#9A9DA1</color>
+    <color name="normal_edit_text_color">#5b5b5b</color>
+    <color name="normal_edit_hint_text_color">#999999</color>
+    <color name="cyan_color">#36E456</color>
+    <color name="blue_text_color">#3f85ff</color>
+    <color name="view_bg_select_color">#f2f2f2</color>
+    <color name="red_text_color">#fb4945</color>
+    <color name="user_statu_bar_color">#FA3C46</color>
+    <color name="bbs_title_bg_color">#EF494D</color>
+    <!--基本按钮色值-->
+    <color name="normal_btn_color">#FF4B4A</color>
+    <color name="normal_btn_select_color">#EF0000</color>
+    <color name="normal_blue_btn_color">#5996FE</color>
+    <color name="normal_blue_btn_select_color">#4286FF</color>
+    <color name="btn_disable_color">#dcdcde</color>
+    <color name="btn_disable_text_color">#888888</color>
+    <color name="gray_btn_normal_color">#E8E8E8</color>
+    <color name="deep_red_color">#EF0000</color>
+    <!--分割线颜色-->
+    <color name="normal_line_color">#eee</color>
+    <color name="deep_line_color">#ddd</color>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--refreshlayout-->
+    <item name="id_tag_autolayout_size" type="id"></item>
+    <item name="id_tag_autolayout_padding" type="id"></item>
+    <item name="id_tag_autolayout_margin" type="id"></item>
+    <item type="id" name="scrollview"/>
+    <!--refreshlayout-->
+    <!--BaseAdapter-->
+    <item name="BaseQuickAdapter_viewholder_support" type="id"/>
+    <item name="BaseQuickAdapter_swiping_support" type="id"/>
+    <item name="BaseQuickAdapter_dragging_support" type="id"/>
+    <item name="BaseQuickAdapter_databinding_support" type="id"/>
+    <item name="banner_indicatorId" type="id" />
+</resources>
