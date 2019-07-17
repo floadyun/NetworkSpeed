@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        speedometer = (AwesomeSpeedView) findViewById(R.id.speedometer);
-        tx_delay = (TextView) findViewById(R.id.tx_delay);
-        tx_down = (TextView) findViewById(R.id.tx_down);
-        tx_up = (TextView) findViewById(R.id.tx_up);
+        speedometer = findViewById(R.id.speedometer);
+        tx_delay = findViewById(R.id.tx_delay);
+        tx_down = findViewById(R.id.tx_down);
+        tx_up = findViewById(R.id.tx_up);
 
         findViewById(R.id.start_layout).setOnClickListener(new View.OnClickListener() {
             @Override

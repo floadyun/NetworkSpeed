@@ -14,8 +14,8 @@
             android:value="1080"/>
         <meta-data
             android:name="design_height"
-            android:value="2340"/>
-        <activity android:name=".MainActivity">
+            android:value="2240"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleFullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
