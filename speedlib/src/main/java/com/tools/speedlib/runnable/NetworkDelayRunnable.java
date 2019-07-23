@@ -41,7 +41,7 @@ public class NetworkDelayRunnable implements Runnable {
                 // rtt min/avg/max/mdev = 32.745/78.359/112.030/33.451 ms
                 if (content.contains("avg")) {
                     String[] delays = content.split("/");
-                    setDelayTime(delays[4] + "ms");
+                    setDelayTime(delays[4]);
                     break;
                 }
             }

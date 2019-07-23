@@ -7,120 +7,136 @@
     <com.base.lib.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="180px"
         android:gravity="center_horizontal"
         android:orientation="vertical">
-        <TextView
-            style="@style/normal_text_style"
-            android:textColor="#C8C1DE"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="5G Peak Rate"/>
         <com.tools.speedlib.views.AwesomeSpeedView
             android:id="@+id/speedometer"
-            android:layout_width="731px"
+            android:layout_width="732px"
             android:layout_height="731px"
             android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="127dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="75px"
             app:sv_endDegree="405"
             android:background="@drawable/bg_meter"/>
-        <com.base.lib.autolayout.AutoLinearLayout
-            android:layout_width="800px"
+        <com.base.lib.autolayout.AutoFrameLayout
+            android:layout_width="891px"
+            android:layout_height="145px"
+            android:background="@drawable/bg_curve"
+            android:layout_marginTop="30px">
+        </com.base.lib.autolayout.AutoFrameLayout>
+        <com.base.lib.autolayout.AutoRelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="209px"
-            android:orientation="horizontal"
-            android:background="@drawable/bg_speed">
-            <com.base.lib.autolayout.AutoLinearLayout
-                android:layout_width="303px"
+            android:layout_marginTop="30px">
+            <View
+                android:layout_width="800px"
                 android:layout_height="match_parent"
-                android:gravity="right"
-                android:paddingRight="15px"
-                android:orientation="vertical">
-                <TextView
-                    style="@style/normal_white_text_style"
-                    android:text="Download"
-                    android:textColor="#C8C1DE"
-                    android:layout_marginTop="-10px"
-                    android:textSize="@dimen/text_size_36" />
-                <TextView
-                    style="@style/normal_white_text_style"
-                    android:text="下载速度"
-                    android:textColor="#C8C1DE"
-                    android:textSize="@dimen/text_size_20" />
-                <TextView
-                    android:id="@+id/tx_delay"
-                    style="@style/normal_white_text_style"
-                    android:text="--"
-                    android:textStyle="bold"
-                    android:textColor="#C8C1DE"
-                    android:textSize="@dimen/text_size_44" />
-                <TextView
-                    style="@style/normal_white_text_style"
-                    android:text="Mbps"
-                    android:textColor="@color/speed_text_color"
-                    android:textSize="@dimen/text_size_20" />
-            </com.base.lib.autolayout.AutoLinearLayout>
+                android:background="@drawable/bg_speed"/>
             <com.base.lib.autolayout.AutoLinearLayout
-                android:layout_width="350px"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:paddingRight="15px"
-                android:orientation="vertical">
-                <TextView
-                    style="@style/normal_white_text_style"
-                    android:text="Upload"
-                    android:textColor="#C8C1DE"
-                    android:layout_marginTop="-10px"
-                    android:textSize="@dimen/text_size_36" />
-                <TextView
-                    style="@style/normal_white_text_style"
-                    android:text="上传速度"
-                    android:textColor="#C8C1DE"
-                    android:textSize="@dimen/text_size_20" />
-                <TextView
-                    android:id="@+id/tx_down"
-                    style="@style/normal_white_text_style"
-                    android:text="--"
-                    android:textStyle="bold"
-                    android:textColor="@color/speed_text_color"
-                    android:textSize="@dimen/text_size_44"  />
-                <TextView
-                    style="@style/normal_white_text_style"
-                    android:text="Mbps"
-                    android:textColor="@color/speed_text_color"
-                    android:textSize="@dimen/text_size_20" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.base.lib.autolayout.AutoLinearLayout
+                    android:layout_width="303px"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:paddingRight="15px"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/normal_white_text_style"
+                        android:text="Download"
+                        android:textColor="#C8C1DE"
+                        android:layout_marginTop="-10px"
+                        android:textSize="@dimen/text_size_36" />
+                    <TextView
+                        style="@style/normal_white_text_style"
+                        android:text="下载速度"
+                        android:textColor="#C8C1DE"
+                        android:textSize="@dimen/text_size_20" />
+                    <TextView
+                        android:id="@+id/download_speed_text"
+                        style="@style/normal_white_text_style"
+                        android:text="--"
+                        android:textStyle="bold"
+                        android:textColor="#C8C1DE"
+                        android:textSize="@dimen/text_size_44" />
+                    <TextView
+                        android:id="@+id/download_unit_text"
+                        style="@style/normal_white_text_style"
+                        android:text="Mbps"
+                        android:textColor="@color/speed_text_color"
+                        android:textSize="@dimen/text_size_20" />
+                </com.base.lib.autolayout.AutoLinearLayout>
+                <com.base.lib.autolayout.AutoLinearLayout
+                    android:layout_width="350px"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:paddingRight="15px"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/normal_white_text_style"
+                        android:text="Upload"
+                        android:textColor="#C8C1DE"
+                        android:layout_marginTop="-10px"
+                        android:textSize="@dimen/text_size_36" />
+                    <TextView
+                        style="@style/normal_white_text_style"
+                        android:text="上传速度"
+                        android:textColor="#C8C1DE"
+                        android:textSize="@dimen/text_size_20" />
+                    <TextView
+                        android:id="@+id/upload_speed_text"
+                        style="@style/normal_white_text_style"
+                        android:text="--"
+                        android:textStyle="bold"
+                        android:textColor="@color/speed_text_color"
+                        android:textSize="@dimen/text_size_44"  />
+                    <TextView
+                        android:id="@+id/upload_unit_text"
+                        style="@style/normal_white_text_style"
+                        android:text="Mbps"
+                        android:textColor="@color/speed_text_color"
+                        android:textSize="@dimen/text_size_20" />
+                </com.base.lib.autolayout.AutoLinearLayout>
+                <com.base.lib.autolayout.AutoLinearLayout
+                    android:layout_width="253px"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/normal_white_text_style"
+                        android:text="Ping"
+                        android:textColor="#C8C1DE"
+                        android:layout_marginTop="-10px"
+                        android:textSize="@dimen/text_size_36" />
+                    <TextView
+                        style="@style/normal_white_text_style"
+                        android:text="延时"
+                        android:textColor="#C8C1DE"
+                        android:textSize="@dimen/text_size_20" />
+                    <TextView
+                        android:id="@+id/delay_text"
+                        style="@style/normal_white_text_style"
+                        android:text="--"
+                        android:textStyle="bold"
+                        android:textColor="@color/speed_text_color"
+                        android:textSize="@dimen/text_size_44"  />
+                    <TextView
+                        style="@style/normal_white_text_style"
+                        android:text="ms"
+                        android:textColor="@color/speed_text_color"
+                        android:textSize="@dimen/text_size_20" />
+                </com.base.lib.autolayout.AutoLinearLayout>
             </com.base.lib.autolayout.AutoLinearLayout>
-            <com.base.lib.autolayout.AutoLinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:orientation="vertical">
-                <TextView
-                    style="@style/normal_white_text_style"
-                    android:text="Ping"
-                    android:textColor="#C8C1DE"
-                    android:layout_marginTop="-10px"
-                    android:textSize="@dimen/text_size_36" />
-                <TextView
-                    style="@style/normal_white_text_style"
-                    android:text="延时"
-                    android:textColor="#C8C1DE"
-                    android:textSize="@dimen/text_size_20" />
-                <TextView
-                    android:id="@+id/tx_up"
-                    style="@style/normal_white_text_style"
-                    android:text="--"
-                    android:textStyle="bold"
-                    android:textColor="@color/speed_text_color"
-                    android:textSize="@dimen/text_size_44"  />
-                <TextView
-                    style="@style/normal_white_text_style"
-                    android:text="Mbps"
-                    android:textColor="@color/speed_text_color"
-                    android:textSize="@dimen/text_size_20" />
-            </com.base.lib.autolayout.AutoLinearLayout>
-        </com.base.lib.autolayout.AutoLinearLayout>
+        </com.base.lib.autolayout.AutoRelativeLayout>
     </com.base.lib.autolayout.AutoLinearLayout>
+    <View
+        android:layout_width="502px"
+        android:layout_height="148px"
+        android:layout_marginLeft="50px"
+        android:layout_marginTop="50px"
+        android:background="@drawable/bg_text_5g"/>
     <LinearLayout
         android:id="@+id/start_layout"
         android:layout_width="match_parent"

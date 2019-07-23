@@ -1,5 +1,8 @@
 package com.tools.speedlib.utils;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 /**
  * 测速转换类
  * Created by wong on 17-3-28.
@@ -96,6 +99,35 @@ public class ConverUtil {
                 return new String[]{temp + "." + floatPart, "GB/S"};
             default:
                 return new String[]{"0", "B/S"};
+        }
+    }
+    public static String[] formatSpeed(long speed){
+        String uinit = "Kbps";
+        String msg = "";
+        if(speed<1024*128){//1Mbps=128Kb/s
+            uinit = "Mbps";
+            msg = formatDouble(speed*8/1024,1);
+        }else {//1Gbps=1024Mbps=128*1024Kb/s
+            uinit = "Gbps";
+            msg = formatDouble(speed*8/(1024*1024),1);
+        }
+        return new String[]{msg,uinit};
+    }
+    /**
+     * NumberFormat is the abstract base class for all number formats.
+     * This class provides the interface for formatting and parsing numbers.
+     * @param保留小数，采用四舍五入
+     * @return
+     */
+    public static String formatDouble(double number,int bits) {
+        try {
+            DecimalFormat formater = new DecimalFormat("0.00");
+            formater.setMaximumFractionDigits(bits);
+            formater.setGroupingSize(0);
+            formater.setRoundingMode(RoundingMode.UP);
+            return formater.format(number);
+        }catch (Exception e){
+            return number+"";
         }
     }
 }
