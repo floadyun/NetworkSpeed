@@ -3,7 +3,13 @@ package com.tools.speedhelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.TextView;
+
+import com.base.lib.util.AbStrUtil;
+import com.base.lib.util.DeviceUtils;
+import com.orhanobut.logger.Logger;
+import com.tools.speedhelper.widget.SineWave;
 import com.tools.speedlib.SpeedManager;
 import com.tools.speedlib.listener.NetDelayListener;
 import com.tools.speedlib.listener.SpeedListener;
@@ -14,6 +20,7 @@ import com.tools.speedlib.views.AwesomeSpeedView;
 public class MainActivity extends AppCompatActivity {
     private AwesomeSpeedView speedometer;
     private TextView downloadText,downloadUnitText,uploadText,uploadUnitText,delayText;
+    private SineWave speedWave;
     SpeedManager speedManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         uploadText = findViewById(R.id.upload_speed_text);
         uploadUnitText = findViewById(R.id.upload_unit_text);
         delayText = findViewById(R.id.delay_text);
+        speedWave = findViewById(R.id.speed_wave_view);
 
         findViewById(R.id.start_layout).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 .setNetDelayListener(new NetDelayListener() {
                     @Override
                     public void result(String delay) {
-                        delayText.setText(String.valueOf(Integer.valueOf(delay)));
+                        delayText.setText(AbStrUtil.formatDouble(Double.valueOf(delay),0));
                     }
                 })
                 .setSpeedListener(new SpeedListener() {
@@ -72,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
         String[] upResult = ConverUtil.formatSpeed(upSpeed);
         uploadText.setText(upResult[0]);
         uploadUnitText.setText(upResult[1]);
+        Logger.d("the speed is "+downSpeed);
+        speedWave.Set((int) downSpeed);
+        speedWave.reFresh();
     }
-
     private void setSpeedView(long speed, String[] result) {
         if (null != result && 2 == result.length) {
             speedometer.setCurrentSpeed(result[0]);

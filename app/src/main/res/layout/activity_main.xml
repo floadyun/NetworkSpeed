@@ -24,6 +24,10 @@
             android:layout_height="145px"
             android:background="@drawable/bg_curve"
             android:layout_marginTop="30px">
+            <com.tools.speedhelper.widget.SineWave
+                android:id="@+id/speed_wave_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </com.base.lib.autolayout.AutoFrameLayout>
         <com.base.lib.autolayout.AutoRelativeLayout
             android:layout_width="wrap_content"
