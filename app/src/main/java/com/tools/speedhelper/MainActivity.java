@@ -101,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        speedManager.finishSpeed();
+        if(speedManager!=null){
+            speedManager.finishSpeed();
+        }
     }
 }
