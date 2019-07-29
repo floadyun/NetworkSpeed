@@ -17,17 +17,16 @@ package com.tools.speedlib.listener.impl;
 
 import android.os.Handler;
 import android.os.Message;
-
 import com.tools.speedlib.listener.ProgressListener;
 import com.tools.speedlib.listener.impl.handler.ProgressHandler;
 import com.tools.speedlib.listener.impl.model.ProgressModel;
 
 public abstract class UIProgressListener implements ProgressListener {
+    private static final int UPDATE_TIME = 100;
     private int id;
     private boolean isFirst = false;
     private long updateTime = System.currentTimeMillis();
     private boolean isCancled = false;
-
     //主线程Handler
     private Handler mHandler ;
 
@@ -81,16 +80,14 @@ public abstract class UIProgressListener implements ProgressListener {
             start.what = ProgressHandler.START;
             mHandler.sendMessage(start);
         }
-
         //通过Handler发送进度消息
-        if(System.currentTimeMillis()-updateTime>=1000){
+        if(System.currentTimeMillis()-updateTime>= UPDATE_TIME){
             updateTime = System.currentTimeMillis();
             Message message = Message.obtain();
             message.obj = new ProgressModel(bytesWrite, contentLength, done);
             message.what = ProgressHandler.UPDATE;
             mHandler.sendMessage(message);
         }
-
         if(done) {
             Message finish = Message.obtain();
             finish.obj = new ProgressModel(bytesWrite, contentLength, done);

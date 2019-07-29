@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.base.lib.util.AbStrUtil;
@@ -20,6 +21,7 @@ import com.tools.speedlib.views.AwesomeSpeedView;
 public class MainActivity extends AppCompatActivity {
     private AwesomeSpeedView speedometer;
     private TextView downloadText,downloadUnitText,uploadText,uploadUnitText,delayText;
+    private LinearLayout startLayout;
     private SineWave speedWave;
     SpeedManager speedManager;
     @Override
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         uploadUnitText = findViewById(R.id.upload_unit_text);
         delayText = findViewById(R.id.delay_text);
         speedWave = findViewById(R.id.speed_wave_view);
+        startLayout = findViewById(R.id.start_layout);
 
         findViewById(R.id.start_layout).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,16 +55,21 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .setSpeedListener(new SpeedListener() {
                     @Override
+                    public void onStart() {
+                        startLayout.setVisibility(View.GONE);
+                    }
+                    @Override
                     public void speeding(long downSpeed, long upSpeed) {
                         setSpeedText(downSpeed,upSpeed);
                     }
                     @Override
                     public void finishSpeed(long finalDownSpeed, long finalUpSpeed) {
                         setSpeedText(finalDownSpeed,finalUpSpeed);
+                        startLayout.setVisibility(View.VISIBLE);
                     }
                 })
                 .setPindCmd("59.61.92.196")
-                .setSpeedCount(6)
+                .setSpeedCount(100)
                 .setSpeedTimeOut(2000)
                 .builder();
         speedManager.startSpeed();
@@ -80,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
         String[] upResult = ConverUtil.formatSpeed(upSpeed);
         uploadText.setText(upResult[0]);
         uploadUnitText.setText(upResult[1]);
-        Logger.d("the speed is "+downSpeed);
         speedWave.Set((int) downSpeed);
         speedWave.reFresh();
     }
@@ -90,5 +97,10 @@ public class MainActivity extends AppCompatActivity {
             speedometer.setUnit(result[1]);
             speedometer.speedPercentTo(ConverUtil.getSpeedPercent(speed));
         }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        speedManager.finishSpeed();
     }
 }

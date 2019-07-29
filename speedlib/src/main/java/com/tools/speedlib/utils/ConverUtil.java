@@ -58,7 +58,6 @@ public class ConverUtil {
     private static int conver(long originData) {
         return Integer.parseInt(new java.text.DecimalFormat("0").format(originData));
     }
-
     /**
      * 格式化速度
      *
@@ -102,14 +101,16 @@ public class ConverUtil {
         }
     }
     public static String[] formatSpeed(long speed){
+        double netSpeed = (double) speed*10/1024;//默认100ms计数
+       // System.out.println("formatSpeed the speed is "+netSpeed+"kb/s");
         String uinit = "Kbps";
         String msg = "";
-        if(speed<1024*128){//1Mbps=128Kb/s
+        if(netSpeed<1024*128){//1Mbps=128Kb/s
             uinit = "Mbps";
-            msg = formatDouble(speed*8/1024,1);
+            msg = formatDouble(netSpeed*8/1024,2);
         }else {//1Gbps=1024Mbps=128*1024Kb/s
             uinit = "Gbps";
-            msg = formatDouble(speed*8/(1024*1024),1);
+            msg = formatDouble(netSpeed*8/(1024*1024),2);
         }
         return new String[]{msg,uinit};
     }
@@ -124,7 +125,7 @@ public class ConverUtil {
             DecimalFormat formater = new DecimalFormat("0.00");
             formater.setMaximumFractionDigits(bits);
             formater.setGroupingSize(0);
-            formater.setRoundingMode(RoundingMode.UP);
+            formater.setRoundingMode(RoundingMode.HALF_UP);
             return formater.format(number);
         }catch (Exception e){
             return number+"";

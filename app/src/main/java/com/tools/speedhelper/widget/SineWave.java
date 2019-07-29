@@ -10,13 +10,11 @@ import android.view.View;
 import com.tools.speedhelper.util.Util;
 
 public class SineWave extends View {
-    int[] datas = new int[10]; //
+    int[] datas = new int[1000]; //
     private Paint mPaint = null;
-
     int centerStartingX, centerStartingY; //
     int centerEndX, centerEndY; //
     double ScaleX, ScaleY; //
-
     public SineWave(Context context) {
         super(context);
         mPaint = new Paint();
@@ -25,7 +23,6 @@ public class SineWave extends View {
         mPaint.setAlpha(200);
         mPaint.setStrokeWidth(5);
     }
-
     public SineWave(Context context, AttributeSet attrs) {
         super(context, attrs);
         mPaint = new Paint();
@@ -34,19 +31,15 @@ public class SineWave extends View {
         mPaint.setAlpha(200);
         mPaint.setStrokeWidth(5);
     }
-
     public void Set(int frequency) {
         for (int i = 0; i < datas.length - 1; i++) {
             datas[i] = datas[i + 1];
         }
         datas[datas.length - 1] = frequency;
     }
-
     @Override
     protected void onDraw(Canvas canvas) {
-
         centerStartingX = Util.centerStartingX;
-
         for (int i = 0; i < datas.length - 1; i++) {
 
             centerStartingX += Util.ScaleX;
@@ -57,11 +50,8 @@ public class SineWave extends View {
                     (float) (centerStartingX + Util.ScaleX) - 20,
                     (float) (Util.core - datas[i + 1] * Util.spacingY), mPaint);
         }
-
     }
-
     public void reFresh() {
         this.invalidate();
     }
-
 }

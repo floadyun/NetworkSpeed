@@ -16,14 +16,14 @@
             android:layout_height="731px"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginTop="75px"
+            android:layout_marginTop="195px"
             app:sv_endDegree="405"
             android:background="@drawable/bg_meter"/>
         <com.base.lib.autolayout.AutoFrameLayout
             android:layout_width="891px"
             android:layout_height="145px"
             android:background="@drawable/bg_curve"
-            android:layout_marginTop="30px">
+            android:layout_marginTop="50px">
             <com.tools.speedhelper.widget.SineWave
                 android:id="@+id/speed_wave_view"
                 android:layout_width="match_parent"
@@ -32,7 +32,7 @@
         <com.base.lib.autolayout.AutoRelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="209px"
-            android:layout_marginTop="30px">
+            android:layout_marginTop="50px">
             <View
                 android:layout_width="800px"
                 android:layout_height="match_parent"
