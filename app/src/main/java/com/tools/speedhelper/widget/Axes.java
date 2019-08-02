@@ -12,13 +12,10 @@ import android.view.View;
 import com.tools.speedhelper.util.Util;
 
 public class Axes extends View {
-	/*
-	 * ������
-	 */
-	int centerStartingX, centerStartingY; // ������
-	int centerEndX, centerEndY; // ����յ�
-	int ScaleX, ScaleY; // �̶ȼ��
-
+	private static final int VAULE_X=100,VALUE_Y = 100;
+	int centerStartingX, centerStartingY;//中间开始位置
+	int centerEndX, centerEndY;//中间结束位置
+	int ScaleX, ScaleY;//刻度值
 	public Axes(Context context) {
 		super(context);
 	}
@@ -27,68 +24,55 @@ public class Axes extends View {
 		super(context, attrs);
 	}
 
-	/*
-	 * �ؼ��������֮������ʾ֮ǰ���������������� ��ʱ���Ի�ȡ��Ļ�Ĵ�С���õ��������㡢�յ�����ڵ㡣
-	 */
 	@Override
 	public void onSizeChanged(int w, int h, int oldw, int oldh) {
-		Util.centerStartingX = centerStartingX = w / 20;
-		Util.centerStartingY = centerStartingY = h / 22;
-		Util.centerEndX = centerEndX = w / 20 * 19;
-		Util.centerEndY = centerEndY = h / 22 * 21;
-		Util.ScaleX = ScaleX = (centerEndX - centerStartingX) / 10;
-		Util.ScaleY = ScaleY = (centerEndY - centerStartingY) / 10;
-		Util.core = centerEndY / 2 + centerStartingY / 2;
-		Util.spacingY = ScaleY / 25.00;
-		
+		Util.centerStartingX = centerStartingX = 0;
+		Util.centerStartingY = centerStartingY = h;
+		Util.centerEndX = centerEndX = w;
+		Util.centerEndY = centerEndY = h;
+		Util.ScaleX = ScaleX = (centerEndX - centerStartingX) / VAULE_X;
+		Util.ScaleY = ScaleY = (centerEndY - centerStartingY) / VALUE_Y;
+		Util.core = h;
+		Util.spacingY = ScaleY / 100.00;
 		super.onSizeChanged(w, h, oldw, oldh);
 	}
-
 	@SuppressLint("DrawAllocation")
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 
 		Paint paint = new Paint();
-		paint.setColor(Color.BLACK);
+		paint.setColor(Color.TRANSPARENT);
 
-		// �������
 		if (canvas != null) {
-			canvas.drawColor(Color.WHITE);
-			// ��ֱ��
+			canvas.drawColor(Color.TRANSPARENT);
 			canvas.drawLine(centerStartingX, centerEndY, centerEndX,
 					centerEndY, paint);
 			canvas.drawLine(centerStartingX, centerStartingY, centerStartingX,
 					centerEndY, paint);
-			// ��X���ͷ
 			int x = centerEndX, y = centerEndY;
 			drawTriangle(canvas, new Point(x, y), new Point(x - 10, y - 5),
 					new Point(x - 10, y + 5));
 			canvas.drawText("X", x - 15, y + 18, paint);
-			// ��Y���ͷ
 			x = centerStartingX;
 			y = centerStartingY;
 			drawTriangle(canvas, new Point(x, y), new Point(x - 5, y + 10),
 					new Point(x + 5, y + 10));
 			canvas.drawText("Y", x + 12, y + 15, paint);
-			// ��X��̶�
 			x = centerStartingX;
 			y = centerEndY;
-			for (int i = 0; i < 9; i++) {
+			for (int i = 0; i < VAULE_X-1; i++) {
 				x += ScaleX;
 				drawScale(canvas, new Point(x, y), new Point(x, y - 20));
 			}
-			// ��Y��̶�
 			x = centerStartingX; 
 			y = centerStartingY;
-			for (int i = 0; i < 9; i++) {
+			for (int i = 0; i < VALUE_Y-1; i++) {
 				y += ScaleY;
 				drawScale(canvas, new Point(x, y), new Point(x + 20, y));
 			}
 		}
-
 	}
-
 	/**
 	 * ������� ���ڻ������ļ�ͷ
 	 */
@@ -105,7 +89,6 @@ public class Axes extends View {
 		// ������������
 		canvas.drawPath(path, paint);
 	}
-
 	/**
 	 * ������ ���ڻ������Ŀ̶�
 	 */
@@ -115,5 +98,4 @@ public class Axes extends View {
 		// ���ƿ̶�
 		canvas.drawLine(p1.x, p1.y, p2.x, p2.y, paint);
 	}
-
 }

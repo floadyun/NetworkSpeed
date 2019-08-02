@@ -9,14 +9,18 @@ import android.view.View;
 
 import com.tools.speedhelper.util.Util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SineWave extends View {
-    int[] datas = new int[1000]; //
+    List<Integer> datas ; //
     private Paint mPaint = null;
     int centerStartingX, centerStartingY; //
     int centerEndX, centerEndY; //
     double ScaleX, ScaleY; //
     public SineWave(Context context) {
         super(context);
+        datas = new ArrayList<>();
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.GREEN);
@@ -25,6 +29,7 @@ public class SineWave extends View {
     }
     public SineWave(Context context, AttributeSet attrs) {
         super(context, attrs);
+        datas = new ArrayList<>();
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.GREEN);
@@ -32,24 +37,23 @@ public class SineWave extends View {
         mPaint.setStrokeWidth(5);
     }
     public void Set(int frequency) {
-        for (int i = 0; i < datas.length - 1; i++) {
-            datas[i] = datas[i + 1];
-        }
-        datas[datas.length - 1] = frequency;
+        datas.add(frequency);
+        reFresh();
     }
     @Override
     protected void onDraw(Canvas canvas) {
         centerStartingX = Util.centerStartingX;
-        for (int i = 0; i < datas.length - 1; i++) {
-
-            centerStartingX += Util.ScaleX;
-            canvas.drawLine(centerStartingX, (float) (Util.core - datas[i]
-                            * Util.spacingY), (float) (centerStartingX + Util.ScaleX),
-                    (float) (Util.core - datas[i + 1] * Util.spacingY), mPaint);
-            canvas.drawText("" + datas[i + 1],
-                    (float) (centerStartingX + Util.ScaleX) - 20,
-                    (float) (Util.core - datas[i + 1] * Util.spacingY), mPaint);
+            for (int i = 0; i < datas.size() - 1; i++) {
+                if(i>0){
+                    centerStartingX += Util.ScaleX;
+                    canvas.drawLine(centerStartingX, (float) (Util.core - datas.get(i-1)
+                                    * Util.spacingY), (float) (centerStartingX + Util.ScaleX),
+                            (float) (Util.core - datas.get(i) * Util.spacingY), mPaint);
+            }
         }
+    }
+    public void clearData(){
+        datas.clear();
     }
     public void reFresh() {
         this.invalidate();

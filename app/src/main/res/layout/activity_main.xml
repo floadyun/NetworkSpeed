@@ -24,6 +24,9 @@
             android:layout_height="145px"
             android:background="@drawable/bg_curve"
             android:layout_marginTop="50px">
+            <com.tools.speedhelper.widget.Axes
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
             <com.tools.speedhelper.widget.SineWave
                 android:id="@+id/speed_wave_view"
                 android:layout_width="match_parent"

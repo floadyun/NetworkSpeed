@@ -1,5 +1,6 @@
 package com.tools.speedhelper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onStart() {
                         startLayout.setVisibility(View.GONE);
+                        speedWave.clearData();
                     }
                     @Override
                     public void speeding(long downSpeed, long upSpeed) {
@@ -88,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
         String[] upResult = ConverUtil.formatSpeed(upSpeed);
         uploadText.setText(upResult[0]);
         uploadUnitText.setText(upResult[1]);
-        speedWave.Set((int) downSpeed);
-        speedWave.reFresh();
+        speedWave.Set(Double.valueOf(downResult[0]).intValue());
     }
     private void setSpeedView(long speed, String[] result) {
         if (null != result && 2 == result.length) {
