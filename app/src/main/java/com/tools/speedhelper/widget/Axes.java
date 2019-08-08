@@ -12,10 +12,10 @@ import android.view.View;
 import com.tools.speedhelper.util.Util;
 
 public class Axes extends View {
-	private static final int VAULE_X=100,VALUE_Y = 100;
+	private static final int VAULE_X=100,VALUE_Y = 50;
 	int centerStartingX, centerStartingY;//中间开始位置
 	int centerEndX, centerEndY;//中间结束位置
-	int ScaleX, ScaleY;//刻度值
+	double ScaleX, ScaleY;//刻度值
 	public Axes(Context context) {
 		super(context);
 	}
@@ -27,13 +27,13 @@ public class Axes extends View {
 	@Override
 	public void onSizeChanged(int w, int h, int oldw, int oldh) {
 		Util.centerStartingX = centerStartingX = 0;
-		Util.centerStartingY = centerStartingY = h;
+		Util.centerStartingY = centerStartingY = 0;
 		Util.centerEndX = centerEndX = w;
 		Util.centerEndY = centerEndY = h;
-		Util.ScaleX = ScaleX = (centerEndX - centerStartingX) / VAULE_X;
-		Util.ScaleY = ScaleY = (centerEndY - centerStartingY) / VALUE_Y;
-		Util.core = h;
-		Util.spacingY = ScaleY / 100.00;
+		Util.ScaleX = ScaleX = (double)(centerEndX - centerStartingX) / VAULE_X;
+		Util.ScaleY = ScaleY = (double) (centerEndY - centerStartingY) / VALUE_Y;
+		//Util.core = h;
+		Util.spacingY = ScaleY;
 		super.onSizeChanged(w, h, oldw, oldh);
 	}
 	@SuppressLint("DrawAllocation")
@@ -84,9 +84,8 @@ public class Axes extends View {
 		path.close();
 
 		Paint paint = new Paint();
-		paint.setColor(Color.BLACK);
+		paint.setColor(Color.TRANSPARENT);
 		paint.setStyle(Paint.Style.FILL);
-		// ������������
 		canvas.drawPath(path, paint);
 	}
 	/**
@@ -94,7 +93,7 @@ public class Axes extends View {
 	 */
 	private void drawScale(Canvas canvas, Point p1, Point p2) {
 		Paint paint = new Paint();
-		paint.setColor(Color.BLACK);
+		paint.setColor(Color.TRANSPARENT);
 		// ���ƿ̶�
 		canvas.drawLine(p1.x, p1.y, p2.x, p2.y, paint);
 	}

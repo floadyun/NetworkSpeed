@@ -49,7 +49,6 @@ public class AwesomeSpeedView extends Speedometer {
 
     @Override
     protected void defaultValues() {
-
         super.setTextColor(Color.parseColor("#ffc260"));
         super.setSpeedTextColor(Color.WHITE);
         super.setUnitTextColor(Color.WHITE);

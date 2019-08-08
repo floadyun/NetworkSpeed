@@ -1,16 +1,14 @@
 package com.tools.speedhelper;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.base.lib.baseui.AppBaseActivity;
 import com.base.lib.util.AbStrUtil;
-import com.base.lib.util.DeviceUtils;
-import com.orhanobut.logger.Logger;
+import com.tools.speedhelper.util.Util;
 import com.tools.speedhelper.widget.SineWave;
 import com.tools.speedlib.SpeedManager;
 import com.tools.speedlib.listener.NetDelayListener;
@@ -19,11 +17,11 @@ import com.tools.speedlib.utils.ConverUtil;
 import com.tools.speedlib.views.AwesomeSpeedView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppBaseActivity {
     private AwesomeSpeedView speedometer;
     private TextView downloadText,downloadUnitText,uploadText,uploadUnitText,delayText;
     private LinearLayout startLayout;
-    private SineWave speedWave;
+    private SineWave downloadWave,uploadWave;
     SpeedManager speedManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         uploadText = findViewById(R.id.upload_speed_text);
         uploadUnitText = findViewById(R.id.upload_unit_text);
         delayText = findViewById(R.id.delay_text);
-        speedWave = findViewById(R.id.speed_wave_view);
+        downloadWave = findViewById(R.id.speed_download_view);
+        uploadWave = findViewById(R.id.speed_upload_view);
         startLayout = findViewById(R.id.start_layout);
 
         findViewById(R.id.start_layout).setOnClickListener(new View.OnClickListener() {
@@ -46,7 +45,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    /**
+     * 退出
+     */
+    public void exitApp(View view){
+        finishSelf();
+    }
     private void start(){
+        downloadWave.Set(Util.centerEndX);
+        uploadWave.Set(Util.centerEndY);
         speedManager = new SpeedManager.Builder()
                 .setNetDelayListener(new NetDelayListener() {
                     @Override
@@ -58,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onStart() {
                         startLayout.setVisibility(View.GONE);
-                        speedWave.clearData();
+                        downloadWave.clearData();
+                        uploadWave.clearData();
                     }
                     @Override
                     public void speeding(long downSpeed, long upSpeed) {
@@ -90,7 +98,8 @@ public class MainActivity extends AppCompatActivity {
         String[] upResult = ConverUtil.formatSpeed(upSpeed);
         uploadText.setText(upResult[0]);
         uploadUnitText.setText(upResult[1]);
-        speedWave.Set(Double.valueOf(downResult[0]).intValue());
+        downloadWave.Set(Double.valueOf(downResult[0]).intValue());
+        uploadWave.Set(Double.valueOf(upResult[0]).intValue());
     }
     private void setSpeedView(long speed, String[] result) {
         if (null != result && 2 == result.length) {

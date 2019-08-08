@@ -28,9 +28,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <com.tools.speedhelper.widget.SineWave
-                android:id="@+id/speed_wave_view"
+                android:id="@+id/speed_download_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+            <com.tools.speedhelper.widget.SineWave
+                android:id="@+id/speed_upload_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:sw_wave_color="@color/red_text_color"/>
         </com.base.lib.autolayout.AutoFrameLayout>
         <com.base.lib.autolayout.AutoRelativeLayout
             android:layout_width="wrap_content"
@@ -167,4 +172,11 @@
             android:textColor="@android:color/white"
             android:textSize="12sp"/>
     </LinearLayout>
+    <Button
+        android:id="@+id/exit_btn"
+        android:layout_width="200px"
+        android:layout_height="100px"
+        android:background="@null"
+        android:layout_alignParentRight="true"
+        android:onClick="exitApp"/>
 </com.base.lib.autolayout.AutoRelativeLayout>
