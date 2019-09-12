@@ -1,7 +1,6 @@
 package com.tools.speedhelper;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,7 +14,6 @@ import com.tools.speedlib.listener.NetDelayListener;
 import com.tools.speedlib.listener.SpeedListener;
 import com.tools.speedlib.utils.ConverUtil;
 import com.tools.speedlib.views.AwesomeSpeedView;
-
 
 public class MainActivity extends AppBaseActivity {
     private AwesomeSpeedView speedometer;
