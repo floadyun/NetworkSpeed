@@ -1,5 +1,6 @@
 package com.tools.speedhelper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -7,6 +8,7 @@ import android.widget.TextView;
 
 import com.base.lib.baseui.AppBaseActivity;
 import com.base.lib.util.AbStrUtil;
+import com.tools.speedhelper.service.SocketService;
 import com.tools.speedhelper.util.Util;
 import com.tools.speedhelper.widget.SineWave;
 import com.tools.speedlib.SpeedManager;
@@ -21,6 +23,9 @@ public class MainActivity extends AppBaseActivity {
     private LinearLayout startLayout;
     private SineWave downloadWave,uploadWave;
     SpeedManager speedManager;
+    private long firstTime;
+    private int clickCount = 0;
+    private String delayTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +47,34 @@ public class MainActivity extends AppBaseActivity {
                 start();
             }
         });
+        startService();
     }
     /**
-     * 退出
+     * 启动服务
      */
-    public void exitApp(View view){
-        finishSelf();
+    public void startService(){
+        Intent intent = new Intent(this, SocketService.class);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            startForegroundService(intent);
+        } else {
+            startService(intent);
+        }
+    }
+    /**
+     * 跳转至设置
+     */
+    public void gotoSetting(View view){
+        clickCount++;
+        if((System.currentTimeMillis()-firstTime) > 3000)  //System.currentTimeMillis()无论何时调用，肯定大于2000
+        {
+            firstTime = System.currentTimeMillis();
+            clickCount = 0;
+        }else{
+            if(clickCount==1){
+                clickCount = 0;
+                startActivity(new Intent(this,SettingActivity.class));
+            }
+        }
     }
     private void start(){
         downloadWave.Set(Util.centerEndX);
@@ -56,7 +83,8 @@ public class MainActivity extends AppBaseActivity {
                 .setNetDelayListener(new NetDelayListener() {
                     @Override
                     public void result(String delay) {
-                        delayText.setText(AbStrUtil.formatDouble(Double.valueOf(delay),0));
+                        delayTime = AbStrUtil.formatDouble(Double.valueOf(delay),0);
+                        delayText.setText(delayTime);
                     }
                 })
                 .setSpeedListener(new SpeedListener() {
@@ -98,6 +126,8 @@ public class MainActivity extends AppBaseActivity {
         uploadUnitText.setText(upResult[1]);
         downloadWave.Set(Double.valueOf(downResult[0]).intValue());
         uploadWave.Set(Double.valueOf(upResult[0]).intValue());
+
+        SocketService.getVRService().sendMessageToServer("DL="+downResult[0]+downResult[1]+",UP="+9.9+upResult[0]+upResult[1]+",Ping="+65+"ms");
     }
     private void setSpeedView(long speed, String[] result) {
         if (null != result && 2 == result.length) {

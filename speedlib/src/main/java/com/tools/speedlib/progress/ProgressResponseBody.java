@@ -34,7 +34,6 @@ public class ProgressResponseBody extends ResponseBody {
     private final ProgressListener progressListener;
     //包装完成的BufferedSource
     private BufferedSource bufferedSource;
-
     /**
      * 构造函数，赋值
      *
@@ -45,8 +44,6 @@ public class ProgressResponseBody extends ResponseBody {
         this.responseBody = responseBody;
         this.progressListener = progressListener;
     }
-
-
     /**
      * 重写调用实际的响应体的contentType
      *
@@ -67,7 +64,6 @@ public class ProgressResponseBody extends ResponseBody {
     public long contentLength() {
         return responseBody.contentLength();
     }
-
     /**
      * 重写进行包装source
      *
@@ -82,7 +78,6 @@ public class ProgressResponseBody extends ResponseBody {
         }
         return bufferedSource;
     }
-
     /**
      * 读取，回调进度接口
      *
@@ -90,11 +85,9 @@ public class ProgressResponseBody extends ResponseBody {
      * @return Source
      */
     private Source source(Source source) {
-
         return new ForwardingSource(source) {
             //当前读取字节数
             long totalBytesRead = 0L;
-
             @Override
             public long read(Buffer sink, long byteCount) throws IOException {
                 long bytesRead = super.read(sink, byteCount);

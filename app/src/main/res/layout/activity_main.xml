@@ -173,10 +173,10 @@
             android:textSize="12sp"/>
     </LinearLayout>
     <Button
-        android:id="@+id/exit_btn"
+        android:id="@+id/set_up_btn"
         android:layout_width="200px"
         android:layout_height="100px"
         android:background="@null"
         android:layout_alignParentRight="true"
-        android:onClick="exitApp"/>
+        android:onClick="gotoSetting"/>
 </com.base.lib.autolayout.AutoRelativeLayout>

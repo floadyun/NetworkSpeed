@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.iwinad.netspeed"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -25,5 +25,4 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.+'
     implementation project(':speedlib')
-    api project(':baselib')
 }

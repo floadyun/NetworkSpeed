@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SettingActivity" android:screenOrientation="portrait" android:theme="@style/NoTitleFullscreen"/>
+        <service android:name=".service.SocketService"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
