@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.base.lib.baseui.AppBaseActivity;
 import com.base.lib.util.AbStrUtil;
 import com.tools.speedhelper.service.SocketService;
@@ -127,7 +126,7 @@ public class MainActivity extends AppBaseActivity {
         downloadWave.Set(Double.valueOf(downResult[0]).intValue());
         uploadWave.Set(Double.valueOf(upResult[0]).intValue());
 
-        SocketService.getVRService().sendMessageToServer("DL="+downResult[0]+downResult[1]+",UP="+9.9+upResult[0]+upResult[1]+",Ping="+65+"ms");
+        SocketService.getVRService().sendMessageToServer("DL="+downResult[0]+downResult[1]+",UP="+upResult[0]+upResult[1]+",Ping="+delayTime+"ms");
     }
     private void setSpeedView(long speed, String[] result) {
         if (null != result && 2 == result.length) {
