@@ -15,6 +15,7 @@ import android.util.AttributeSet;
 import com.tools.speedlib.R;
 import com.tools.speedlib.views.base.Speedometer;
 import com.tools.speedlib.views.base.SpeedometerDefault;
+import com.tools.speedlib.views.components.Indicators.ImageIndicator;
 import com.tools.speedlib.views.components.Indicators.TriangleIndicator;
 
 
@@ -31,7 +32,7 @@ public class AwesomeSpeedView extends Speedometer {
             trianglesPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private RectF speedometerRect = new RectF();
 
-    private int speedometerColor = Color.parseColor("#007AFF");
+    private int speedometerColor = Color.parseColor("#393C8B");
 
     public AwesomeSpeedView(Context context) {
         this(context, null);
@@ -48,9 +49,9 @@ public class AwesomeSpeedView extends Speedometer {
     }
     @Override
     protected void defaultValues() {
-        super.setTextColor(Color.parseColor("#ffc260"));
-        super.setSpeedTextColor(Color.parseColor("#FAF7F8"));
-        super.setUnitTextColor(Color.parseColor("#FAF7F8"));
+        super.setTextColor(Color.parseColor("#F2E7F3"));
+        super.setSpeedTextColor(Color.parseColor("#F2E7F3"));
+        super.setUnitTextColor(Color.parseColor("#F2E7F3"));
         super.setTextTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
         super.setSpeedTextPosition(Position.CENTER);
         super.setUnitUnderSpeedText(true);
@@ -64,8 +65,8 @@ public class AwesomeSpeedView extends Speedometer {
         speedometerDefault.startDegree = 135;
         speedometerDefault.endDegree = 135+320;
         speedometerDefault.speedometerWidth = dpTOpx(60);
-        speedometerDefault.backgroundCircleColor = Color.parseColor("#212121");
-        speedometerDefault.backgroundCircleColor = Color.parseColor("#212121");
+        speedometerDefault.backgroundCircleColor = Color.parseColor("#151520");
+        speedometerDefault.backgroundCircleColor = Color.parseColor("#151520");
         return speedometerDefault;
     }
 

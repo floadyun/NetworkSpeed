@@ -23,7 +23,7 @@
             android:layout_width="891px"
             android:layout_height="145px"
             android:background="@drawable/bg_curve"
-            android:layout_marginTop="50px">
+            android:layout_marginTop="155px">
             <com.tools.speedhelper.widget.Axes
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -39,15 +39,15 @@
         </com.base.lib.autolayout.AutoFrameLayout>
         <com.base.lib.autolayout.AutoRelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="209px"
-            android:layout_marginTop="50px">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px">
             <View
                 android:layout_width="800px"
-                android:layout_height="match_parent"
+                android:layout_height="209px"
                 android:background="@drawable/bg_speed"/>
             <com.base.lib.autolayout.AutoLinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <com.base.lib.autolayout.AutoLinearLayout
                     android:layout_width="303px"
@@ -58,20 +58,20 @@
                     <TextView
                         style="@style/normal_white_text_style"
                         android:text="Download"
-                        android:textColor="#C8C1DE"
+                        android:textColor="@color/speed_text_color"
                         android:layout_marginTop="-10px"
                         android:textSize="@dimen/text_size_36" />
                     <TextView
                         style="@style/normal_white_text_style"
                         android:text="下载速度"
-                        android:textColor="#C8C1DE"
+                        android:textColor="@color/speed_text_color"
                         android:textSize="@dimen/text_size_20" />
                     <TextView
                         android:id="@+id/download_speed_text"
                         style="@style/normal_white_text_style"
                         android:text="--"
                         android:textStyle="bold"
-                        android:textColor="#C8C1DE"
+                        android:textColor="@color/speed_text_color"
                         android:textSize="@dimen/text_size_44" />
                     <TextView
                         android:id="@+id/download_unit_text"
@@ -89,13 +89,13 @@
                     <TextView
                         style="@style/normal_white_text_style"
                         android:text="Upload"
-                        android:textColor="#C8C1DE"
+                        android:textColor="@color/speed_text_color"
                         android:layout_marginTop="-10px"
                         android:textSize="@dimen/text_size_36" />
                     <TextView
                         style="@style/normal_white_text_style"
                         android:text="上传速度"
-                        android:textColor="#C8C1DE"
+                        android:textColor="@color/speed_text_color"
                         android:textSize="@dimen/text_size_20" />
                     <TextView
                         android:id="@+id/upload_speed_text"
@@ -119,7 +119,7 @@
                     <TextView
                         style="@style/normal_white_text_style"
                         android:text="Ping"
-                        android:textColor="#C8C1DE"
+                        android:textColor="@color/speed_text_color"
                         android:layout_marginTop="-10px"
                         android:textSize="@dimen/text_size_36" />
                     <TextView
@@ -149,29 +149,29 @@
         android:layout_marginLeft="50px"
         android:layout_marginTop="50px"
         android:background="@drawable/bg_text_5g"/>
-    <LinearLayout
+    <com.base.lib.autolayout.AutoLinearLayout
         android:id="@+id/start_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="202px"
         android:gravity="center"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
         android:background="@drawable/bg_start"
-        android:layout_marginBottom="50dp">
+        android:layout_marginBottom="30dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="START"
-            android:textSize="24sp"
-            android:textColor="@android:color/white"/>
+            android:textSize="18sp"
+            android:textColor="@color/speed_text_color"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="开始"
-            android:textColor="@android:color/white"
-            android:textSize="12sp"/>
-    </LinearLayout>
+            android:textColor="@color/speed_text_color"
+            android:textSize="10sp"/>
+    </com.base.lib.autolayout.AutoLinearLayout>
     <Button
         android:id="@+id/set_up_btn"
         android:layout_width="200px"

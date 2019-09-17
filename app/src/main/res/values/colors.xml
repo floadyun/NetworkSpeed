@@ -13,7 +13,7 @@
     <color name="C01_ST_disabled">#8FCBFF</color>
     <!-- 大面积使用、用于文字、title、内容-->
     <color name="C02_ST">#000000</color>
-    <color name="speed_text_color">#C8C1DE</color>
+    <color name="speed_text_color">#F2E7F3</color>
 
     <!-- 一般-->
     <!-- 用于提醒文字、红点提醒等-->

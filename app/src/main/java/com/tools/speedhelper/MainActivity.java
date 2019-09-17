@@ -76,6 +76,7 @@ public class MainActivity extends AppBaseActivity {
         }
     }
     private void start(){
+        startLayout.setVisibility(View.GONE);
         downloadWave.Set(Util.centerEndX);
         uploadWave.Set(Util.centerEndY);
         speedManager = new SpeedManager.Builder()
@@ -89,7 +90,6 @@ public class MainActivity extends AppBaseActivity {
                 .setSpeedListener(new SpeedListener() {
                     @Override
                     public void onStart() {
-                        startLayout.setVisibility(View.GONE);
                         downloadWave.clearData();
                         uploadWave.clearData();
                     }

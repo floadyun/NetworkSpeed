@@ -18,7 +18,7 @@ public class SpeedometerDefault {
 
     public float speedometerWidth = -1;
 
-    public int markColor = Color.WHITE
+    public int markColor = Color.parseColor("#FBF5F9")
             , lowSpeedColor = Color.GREEN
             , mediumSpeedColor = Color.YELLOW
             , highSpeedColor = Color.RED
