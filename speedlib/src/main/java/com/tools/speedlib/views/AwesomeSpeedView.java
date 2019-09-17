@@ -46,17 +46,15 @@ public class AwesomeSpeedView extends Speedometer {
         init();
         initAttributeSet(context, attrs);
     }
-
     @Override
     protected void defaultValues() {
         super.setTextColor(Color.parseColor("#ffc260"));
-        super.setSpeedTextColor(Color.WHITE);
-        super.setUnitTextColor(Color.WHITE);
+        super.setSpeedTextColor(Color.parseColor("#FAF7F8"));
+        super.setUnitTextColor(Color.parseColor("#FAF7F8"));
         super.setTextTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
         super.setSpeedTextPosition(Position.CENTER);
         super.setUnitUnderSpeedText(true);
     }
-
     @Override
     protected SpeedometerDefault getSpeedometerDefault() {
         SpeedometerDefault speedometerDefault = new SpeedometerDefault();

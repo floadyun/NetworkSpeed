@@ -12,7 +12,7 @@ import android.view.View;
 import com.tools.speedhelper.util.Util;
 
 public class Axes extends View {
-	private static final int VAULE_X=100,VALUE_Y = 50;
+	private static final int VAULE_X=100,VALUE_Y = 100;
 	int centerStartingX, centerStartingY;//中间开始位置
 	int centerEndX, centerEndY;//中间结束位置
 	double ScaleX, ScaleY;//刻度值

@@ -27,7 +27,7 @@ public abstract class Speedometer extends Gauge {
     private Paint circleBackPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private float speedometerWidth = dpTOpx(30f);
 
-    private int markColor = Color.WHITE
+    private int markColor = Color.parseColor("#1F1D26")
             , lowSpeedColor = Color.GREEN
             , mediumSpeedColor = Color.YELLOW
             , highSpeedColor = Color.RED
