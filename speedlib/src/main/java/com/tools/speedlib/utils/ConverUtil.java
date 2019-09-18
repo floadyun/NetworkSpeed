@@ -101,16 +101,16 @@ public class ConverUtil {
         }
     }
     public static String[] formatSpeed(long speed){
-        double netSpeed = (double) speed*10/1024;//默认100ms计数
+        double netSpeed = (double) speed*8/1024;//转为kb
        // System.out.println("formatSpeed the speed is "+netSpeed+"kb/s");
         String uinit = "Kbps";
         String msg = "";
         if(netSpeed<1024*128){//1Mbps=128Kb/s
             uinit = "Mbps";
-            msg = formatDouble(netSpeed*8/1024,2);
+            msg = formatDouble(netSpeed/128,2);
         }else {//1Gbps=1024Mbps=128*1024Kb/s
             uinit = "Gbps";
-            msg = formatDouble(netSpeed*8/(1024*1024),2);
+            msg = formatDouble(netSpeed/(128*128),2);
         }
         return new String[]{msg,uinit};
     }

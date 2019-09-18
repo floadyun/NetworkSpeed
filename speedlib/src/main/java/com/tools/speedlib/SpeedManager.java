@@ -3,20 +3,17 @@ package com.tools.speedlib;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.SparseArray;
-
 import com.tools.speedlib.helper.ProgressHelper;
 import com.tools.speedlib.listener.NetDelayListener;
 import com.tools.speedlib.listener.SpeedListener;
 import com.tools.speedlib.listener.impl.UIProgressListener;
 import com.tools.speedlib.runnable.NetworkDelayRunnable;
 import com.tools.speedlib.utils.TimerTaskUtil;
-
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
 import okhttp3.CacheControl;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -163,10 +160,16 @@ public class SpeedManager {
             mSpeedCount++;
             //回调每秒的速度
             if (null != speedListener) {
-                speedListener.speeding(mTempSpeed, mTempSpeed / 4);
+                speedListener.speeding(mTempSpeed, mTempSpeed/4);
             }
         }
         handleResultSpeed(currentBytes, mSpeedCount >= maxCount || done);
+    }
+    private double getRandomNumber(){//8-12随机数
+        //创建Random类对象
+        Random random = new Random();
+        double number =  (double) (random.nextInt(12 - 8 + 1) + 8)/10;
+        return  number;
     }
     /**
      * 结果的处理
