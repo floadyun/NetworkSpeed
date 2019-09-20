@@ -46,7 +46,7 @@ public abstract class Gauge extends View {
     /**
      * the max range in speedometer, {@code default = 100}
      */
-    private int maxSpeed = 100;
+    private int maxSpeed = 1000;
     /**
      * the min range in speedometer, {@code default = 0}
      */

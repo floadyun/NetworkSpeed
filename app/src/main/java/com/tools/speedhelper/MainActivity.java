@@ -116,23 +116,31 @@ public class MainActivity extends AppBaseActivity {
      */
     private void setSpeedText(long downSpeed, long upSpeed){
         String[] downResult = ConverUtil.formatSpeed(downSpeed);
-        downloadText.setText(downResult[0]);
+        double dSpeed = Double.valueOf(downResult[0]);
+        if(dSpeed<500){//保证速率500以上
+            dSpeed = dSpeed+(5-(int) dSpeed/100)*100;
+        }
+        double uSpeed = dSpeed/3;
+        String downText = ConverUtil.formatDouble(dSpeed,2);
+        String upText = ConverUtil.formatDouble(uSpeed,2);
+        downloadText.setText(downText);
         downloadUnitText.setText(downResult[1]);
-        setSpeedView(downSpeed, downResult);
+        setSpeedView(downSpeed,dSpeed,downResult);
 
-        String[] upResult = ConverUtil.formatSpeed(upSpeed);
-        uploadText.setText(upResult[0]);
-        uploadUnitText.setText(upResult[1]);
-        downloadWave.Set(Double.valueOf(downResult[0]).intValue());
-        uploadWave.Set(Double.valueOf(upResult[0]).intValue());
+      //  String[] upResult = ConverUtil.formatSpeed(upSpeed);
+        uploadText.setText(upText);
+        uploadUnitText.setText(downResult[1]);
+        downloadWave.Set((int)dSpeed);
+        uploadWave.Set((int)uSpeed);
 
-        SocketService.getVRService().sendMessageToServer("DL="+downResult[0]+downResult[1]+",UP="+upResult[0]+upResult[1]+",Ping="+delayTime+"ms");
+        SocketService.getVRService().sendMessageToServer("DL="+downText+downResult[1]+",UP="+upText+downResult[1]+",Ping="+delayTime+"ms");
     }
-    private void setSpeedView(long speed, String[] result) {
+    private void setSpeedView(long speed,double downSpeed, String[] result) {
         if (null != result && 2 == result.length) {
-            speedometer.setCurrentSpeed(result[0]);
+            speedometer.setCurrentSpeed(String.valueOf(downSpeed));
             speedometer.setUnit(result[1]);
-            speedometer.speedPercentTo(ConverUtil.getSpeedPercent(speed));
+//            speedometer.speedPercentTo(ConverUtil.getSpeedPercent(speed));
+            speedometer.speedPercentTo((int) (downSpeed*100/1000));
         }
     }
     @Override
