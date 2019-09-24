@@ -39,9 +39,9 @@ public abstract class Gauge extends View {
     /**
      * the text after speedText
      */
-    private String unit = "0.00";
+    private String unit = "Mbps";
     private boolean withTremble = true;
-    private String currentSpeed = "Mbps";
+    private String currentSpeed = "0.00";
 
     /**
      * the max range in speedometer, {@code default = 100}

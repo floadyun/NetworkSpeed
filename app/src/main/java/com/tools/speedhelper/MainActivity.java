@@ -121,8 +121,8 @@ public class MainActivity extends AppBaseActivity {
             dSpeed = dSpeed+(5-(int) dSpeed/100)*100;
         }
         double uSpeed = dSpeed/3;
-        String downText = ConverUtil.formatDouble(dSpeed,2);
-        String upText = ConverUtil.formatDouble(uSpeed,2);
+        String downText = ConverUtil.roundByScale(dSpeed,2);
+        String upText = ConverUtil.roundByScale(uSpeed,2);
         downloadText.setText(downText);
         downloadUnitText.setText(downResult[1]);
         setSpeedView(downSpeed,dSpeed,downResult);
@@ -137,7 +137,7 @@ public class MainActivity extends AppBaseActivity {
     }
     private void setSpeedView(long speed,double downSpeed, String[] result) {
         if (null != result && 2 == result.length) {
-            speedometer.setCurrentSpeed(String.valueOf(downSpeed));
+            speedometer.setCurrentSpeed(ConverUtil.roundByScale(downSpeed,2));
             speedometer.setUnit(result[1]);
 //            speedometer.speedPercentTo(ConverUtil.getSpeedPercent(speed));
             speedometer.speedPercentTo((int) (downSpeed*100/1000));
