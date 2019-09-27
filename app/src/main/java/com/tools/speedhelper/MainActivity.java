@@ -117,10 +117,10 @@ public class MainActivity extends AppBaseActivity {
     private void setSpeedText(long downSpeed, long upSpeed){
         String[] downResult = ConverUtil.formatSpeed(downSpeed);
         double dSpeed = Double.valueOf(downResult[0]);
-        if(dSpeed<500){//保证速率500以上
-            dSpeed = dSpeed+(5-(int) dSpeed/100)*100;
+        if(dSpeed<800){//保证速率800以上
+            dSpeed = dSpeed+(8-(int) dSpeed/100)*100;
         }
-        double uSpeed = dSpeed/3;
+        double uSpeed = dSpeed/4;
         String downText = ConverUtil.roundByScale(dSpeed,2);
         String upText = ConverUtil.roundByScale(uSpeed,2);
         downloadText.setText(downText);
